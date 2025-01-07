@@ -1,0 +1,4 @@
+# config.yaml
+postsHTMLFolder: ~/Downloads/medium/posts/
+hugoContentFolder: /srv/go/myblog/
+contentType: posts
