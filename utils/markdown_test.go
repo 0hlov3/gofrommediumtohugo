@@ -31,8 +31,12 @@ func TestConvertHTMLToMarkdown(t *testing.T) {
 		{"   <p>Trimmed</p>   ", "Trimmed"},
 
 		// Test code blocks
-		{"<pre><code class=\"markup--code markup--pre-code\">❯ brew upgrade<br>brew upgrade</code></pre>", "```\n❯ brew upgrade\nbrew upgrade\n```"},
+		{"<pre><code class=\"markup--code markup--pre-code\">❯ brew upgrade<br>brew upgrade</code></pre>", "```plaintext\n❯ brew upgrade\nbrew upgrade\n```"},
 		{"<code class=\"markup--code markup--pre-code\">❯ brew upgrade<br>brew upgrade</code>", "`❯ brew upgrade brew upgrade`"},
+		{"<pre data-code-block-mode=\"2\" spellcheck=\"false\" data-code-block-lang=\"yaml\" name=\"0568\" id=\"0568\" class=\"graf graf--pre graf-after--blockquote graf--preV2\">❯ brew upgrade<br>brew upgrade</pre>", "```yaml\n❯ brew upgrade\nbrew upgrade\n```"},
+		{"<pre data-code-block-lang=\"bash\">sudo pacman -S --needed gnupg</pre>", "```bash\nsudo pacman -S --needed gnupg\n```"},
+		{"<pre data-code-block-lang=\"yaml\">key: value</pre>", "```yaml\nkey: value\n```"},
+		{"<pre>sudo pacman -S --needed gnupg</pre>", "```plaintext\nsudo pacman -S --needed gnupg\n```"},
 	}
 
 	for _, test := range tests {
