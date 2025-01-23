@@ -21,7 +21,7 @@ archives:
 
 dockers:
   - image_templates:
-      - "ghcr.io/{{ .RepoOwner }}/{{ .ProjectName }}:{{ .Version }}"
+      - "ghcr.io/{{ .Env.REPO_OWNER }}/{{ .ProjectName }}:{{ .Version }}"
     dockerfile: ./Dockerfile
 
 checksum:
