@@ -1,0 +1,25 @@
+project_name: GoFromMediumToHugo
+
+builds:
+  - id: GoFromMediumToHugo
+    main: ./cmd/GoFromMediumToHugo
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags: "-s -w"
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+dockers:
+  - image_templates:
+      - "ghcr.io/{{ .RepoOwner }}/{{ .ProjectName }}:{{ .Version }}"
+    dockerfile: ./Dockerfile
+    platforms:
+      - linux/amd64
+      - linux/arm64
