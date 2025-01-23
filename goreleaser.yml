@@ -1,8 +1,10 @@
+version: 2
+
 project_name: GoFromMediumToHugo
 
 builds:
   - id: GoFromMediumToHugo
-    main: ./cmd/GoFromMediumToHugo
+    main: ./main.go
     goos:
       - linux
       - windows
@@ -10,16 +12,25 @@ builds:
     goarch:
       - amd64
       - arm64
-    ldflags: "-s -w"
+    ldflags:
+      - "-s -w"
 
 archives:
-  - format: tar.gz
+  - formats: [ 'zip' ]
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
 
 dockers:
   - image_templates:
       - "ghcr.io/{{ .RepoOwner }}/{{ .ProjectName }}:{{ .Version }}"
     dockerfile: ./Dockerfile
-    platforms:
-      - linux/amd64
-      - linux/arm64
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: "asc"
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
