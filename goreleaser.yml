@@ -1,6 +1,6 @@
 version: 2
 
-project_name: GoFromMediumToHugo
+project_name: gofrommediumtohugo
 
 builds:
   - id: gofrommediumtohugo
