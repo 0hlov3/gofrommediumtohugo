@@ -1,9 +1,9 @@
 version: 2
 
-project_name: GoFromMediumToHugo
+project_name: gofrommediumtohugo
 
 builds:
-  - id: GoFromMediumToHugo
+  - id: gofrommediumtohugo
     main: ./main.go
     goos:
       - linux
