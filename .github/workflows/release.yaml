@@ -12,9 +12,8 @@ on:
 
 permissions:
   contents: write
-  packages: write  # For Docker image publishing
-  actions: read    # Default for Actions
-  id-token: write  # If Docker registry login requires OIDC
+  packages: write
+  actions: read
 
 jobs:
   test:
