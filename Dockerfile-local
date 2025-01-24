@@ -10,7 +10,7 @@ RUN apk add --no-cache git
 # Create and switch to a new working directory
 WORKDIR /app
 # Copy Go module files and download dependencies
-COPY go.mod go.sum main.go config.yaml utils models converter cmd ./
+COPY go.mod go.sum ./
 RUN go mod download
 # Copy the source code
 COPY . .
