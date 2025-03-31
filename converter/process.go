@@ -44,7 +44,7 @@ func Convert(postsHTMLFolder, hugoContentFolder, contentType string) {
 			continue
 		}
 
-		fmt.Printf("[%d/%d] Processing: %s... ", i+1, len(files), f.Name())
+		fmt.Printf("[%d/%d] Processing: %s... \n", i+1, len(files), f.Name())
 		outpath, err := processFile(f, postsHTMLFolder, hugoContentFolder, contentType)
 
 		if err == nil {
@@ -86,7 +86,7 @@ func processPost(doc *goquery.Document, file os.DirEntry, contentFolder, content
 	post := models.NewPost()
 
 	// Extract metadata
-	post.Title = strings.TrimSpace(doc.Find(TitleSelector).Text())
+	post.Title = strings.TrimSpace(doc.Find(TitleSelector).First().Text())
 	post.Subtitle = strings.TrimSpace(doc.Find(SubtitleSelector).Text())
 	post.Author = strings.TrimSpace(doc.Find(AuthorSelector).Text())
 	post.SetDate(doc.Find(DateSelector).AttrOr("datetime", ""))
