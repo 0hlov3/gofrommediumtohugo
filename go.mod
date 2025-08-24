@@ -4,7 +4,7 @@ go 1.23.4
 
 require (
 	github.com/JohannesKaufmann/dom v0.2.0
-	github.com/JohannesKaufmann/html-to-markdown/v2 v2.3.3
+	github.com/JohannesKaufmann/html-to-markdown/v2 v2.4.0
 	github.com/PuerkitoBio/goquery v1.10.3
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
