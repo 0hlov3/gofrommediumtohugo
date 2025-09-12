@@ -2,7 +2,7 @@ module github.com/0hlov3/GoFromMediumToHugo
 
 go 1.24.0
 
-toolchain go1.24.7
+toolchain go1.25.1
 
 require (
 	github.com/JohannesKaufmann/dom v0.2.0
